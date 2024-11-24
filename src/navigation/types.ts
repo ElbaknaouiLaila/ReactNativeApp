@@ -4,7 +4,9 @@
 // Enables type-safe navigation
 // Makes navigation params explicit
 
+
 export type RootStackParamList = {
+    Welcome: undefined;
     Auth: undefined;
     Main: undefined;
   };

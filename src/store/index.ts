@@ -10,14 +10,18 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import authReducer from '../auth/authSlice';
 import { authApi } from '../auth/authAPI';
+import { logoutApi } from '../auth/logoutApi';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [logoutApi.reducerPath]: logoutApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware),
+    getDefaultMiddleware()
+    .concat(authApi.middleware)
+    .concat(logoutApi.middleware),
 });
 
 setupListeners(store.dispatch);

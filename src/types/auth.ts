@@ -27,3 +27,9 @@ export interface RegisterRequest {
   password: string;
   name: string;
 }
+
+export interface AuthHookReturn {
+  handleLogin: (email: string, password: string) => Promise<LoginResponse>;
+  handleLogout: () => Promise<void>;
+  isLoginLoading: boolean;
+}

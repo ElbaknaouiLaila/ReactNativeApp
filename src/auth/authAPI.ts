@@ -22,6 +22,10 @@ interface LoginResponse {
   message: string[];
   statusCode: number;
 }
+interface LogoutResponse {
+  message: string;
+  statusCode: number;
+}
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -44,7 +48,16 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
+
+    // logout: builder.mutation<LogoutResponse, void>({
+    //   query: () => ({
+    //     url: 'http://10.0.2.2:8009/api/logout',
+    //     method: 'POST',
+    //   }),
+    // }),
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { 
+  useLoginMutation,
+ } = authApi;
